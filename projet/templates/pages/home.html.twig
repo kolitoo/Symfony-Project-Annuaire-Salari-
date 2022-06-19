@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Accueil - Annuaire Entreprise {% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+<div class="jumbotron">
+  <h1 class="display-4 text-center">Annuaire Entreprise</h1>
+  <p class="lead text-center">Voici l'application qui servira à éditer votre annuaire des salariés.</p>
+  <hr class="my-4">
+  <p class="text-center">A travers cette application, Vous pouvez voir, ajouter, éditer et supprimer l'annuaire des salariés. </p>
+  <div class="text-center mt-5">
+   <a class="btn btn-primary btn-info" href="{{ path('annuaire')}}" 
+   role="button">Aller à l'annuaire</a>
+  </div>
+  </div>
+</div>
+{% endblock %}

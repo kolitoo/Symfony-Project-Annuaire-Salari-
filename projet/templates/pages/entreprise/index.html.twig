@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annuaire Entreprise{% endblock %}
+{% block body %}
+  <div class="container mt-4">
+    <h1>Annuaire</h1>
+
+    <a href="{{ path('enteprise_new') }}" class="btn btn-info">
+      Créer une nouvelle ligne
+    </a>
+     {% for message in app.flashes('success') %}
+   <div class="alert alert-success">
+     {{ message}}
+   </div>
+   {% endfor %}
+
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Numéro</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Téléphone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Poste</th>
+      <th scope="col">Salaire</th>
+      <th scope="col">Date de Naissance</th>
+      <th scope="col">Modifier</th>
+      <th scope="col">Supprimer</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for annuaire in annuaire %}
+    <tr class="table-info">
+      <th scope="row">{{ annuaire.id }}</th>
+      <td>{{ annuaire.nom }}</td>
+      <td>{{ annuaire.prenom }}</td>
+      <td>{{ annuaire.telephone }}</td>
+      <td>{{ annuaire.email }}</td>
+      <td>{{ annuaire.adresse }}</td>
+      <td>{{ annuaire.poste }}</td>
+      <td>{{ annuaire.salaire }}</td>
+      <td>{{ annuaire.datedenaissance }}</td>
+      <td><a href="{{ path('entreprise.edit', {id: annuaire.id}) }}" class="img-fluid"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAhElEQVRIie2TwQnAIAxF35Klh3YBdxDqPh3HQdq7gj00ooi3xkvxQ0BzeD8JfJh6ZYEbWEfAHZCkIrCPgAfgrN4qm9STG+llk0sTngAvJkH+VgMeBOobM6cFz3c22vAIbNJbKGc5JnzCfwCHEpgcorWCfwpRawDKk7cGdanBewaq8KmuHlYrZbGe+TNUAAAAAElFTkSuQmCC"/></a></td>
+      <td><a href="{{ path('entreprise.delete', {id: annuaire.id}) }}" class="img-fluid"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAtElEQVRIie2VQQ6CQAxFX8R7uPM4xsPgCTmFSzW6niUGBTezMnawLTIQecks+1+bzgD8G4Wjdg9sgeNAvXzNHah/Fb6L4Z3y1LFWTWWQSaf6JFhZulLSjeCYOQH/foMUntrx2d87p1xiMWOS4ssAYjFjkhNnE4s3UoEpowAa7G+4AdZSeGriJ3CzdBy5Ag+LGHx7TtYu4nc8H5FkbbaJ+9gALfqn1MZaFwd0/+YAlF7pwvx5Abo6e/T2cOSLAAAAAElFTkSuQmCC"/></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  </div>
+{% endblock %}
